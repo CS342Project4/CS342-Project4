@@ -1,4 +1,4 @@
-package Controllers;
+
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,7 +31,7 @@ public class ServerLoginScreenController {
             Parent afterConnection = loadGameInfoFile.load();
 
             //Get controller of scene2
-            ServerInfoScreenController serverInfoControl = loadGameInfoFile.getController();
+            Controllers.ServerInfoScreenController serverInfoControl = loadGameInfoFile.getController();
 
             serverInfoControl.transferPortNumberAndInitializeServer(this.PORT);
 

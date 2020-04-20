@@ -25,10 +25,11 @@ public class Server{
     String choosenWord;
     int randomNum;
     private Consumer<Serializable> callback;
+    private int PORT;
     gameInfo game = new gameInfo();
 
-    Server(Consumer<Serializable> call) throws FileNotFoundException {
-
+    Server(Consumer<Serializable> call,int PORT) throws FileNotFoundException {
+        this.PORT = PORT;
         callback = call;
         server = new TheServer();
         server.start();
@@ -46,7 +47,7 @@ public class Server{
                 while(sc3.hasNextLine()){
                     superList.add(sc3.nextLine());
                 }
-            try(ServerSocket mysocket = new ServerSocket(5556);){
+            try(ServerSocket mysocket = new ServerSocket(PORT);){
                 System.out.println("Server is waiting for a client!");
                 callback.accept("Server launched, waiting for clients to connect !");
                 while(true) {

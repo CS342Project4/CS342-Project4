@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="$CONTROLLER_NAME$"
+            prefHeight="400.0" prefWidth="600.0">
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #475B5A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ServerInfoScreenController">
-   <children>
-      <ListView fx:id="serverInfo" layoutX="128.0" layoutY="110.0" prefHeight="206.0" prefWidth="363.0" style="-fx-background-color: #F8CFA8;" />
-   </children>
 </AnchorPane>

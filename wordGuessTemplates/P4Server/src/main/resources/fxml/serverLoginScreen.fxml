@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #475B5A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="serverLoginScreenController">
+   <children>
+      <Label layoutX="95.0" layoutY="83.0" text="Word Guessing Game Server" textFill="#f8cfa8">
+         <font>
+            <Font name="Optima Regular" size="36.0" />
+         </font>
+      </Label>
+      <TextField fx:id="portInTextField" layoutX="234.0" layoutY="214.0" opacity="0.78" prefHeight="33.0" prefWidth="172.0" promptText="PORT Number">
+         <font>
+            <Font name="Optima Regular" size="13.0" />
+         </font>
+      </TextField>
+      <Button layoutX="279.0" layoutY="272.0" mnemonicParsing="false" onMouseClicked="#startServer" style="-fx-background-color: #f8cfa8;" text="Start Server" textFill="#475b5a" />
+   </children>
 </AnchorPane>

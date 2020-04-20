@@ -127,26 +127,54 @@ public class Server{
                         randomNum = rand.nextInt(animalsList.size());
                         System.out.println("the Word at "+randomNum+" is "+animalsList.get(randomNum));
                         game.setCurrentWord(animalsList.get(randomNum));
+                        choosenWord = animalsList.get(randomNum);
                         send(game);
+                        while(game.correctGuess!=true){
+                            game = (gameInfo)in.readObject();
+                            if(game.letterGuess==true){
+                                game.letterGuess = false;
+                                String tempLetter = game.letterInput;
+                                for(int i=0;i<choosenWord.length();i++){
+                                    if(choosenWord.charAt(i) == tempLetter.charAt(0)){
+                                        System.out.println("letter location -> "+i);
+                                        game.letterLocation = i;
+                                        game.currentWord = choosenWord;
+                                        send(game);
+                                        break;
+                                    }
+                                }
+                            }
+                            else if(game.wordGuess==true){
+
+                            }
+                        }
                     }
                     if(game.SuperheroSelect == true){
                         randomNum = rand.nextInt(superList.size());
                         System.out.println("the Word at "+randomNum+" is "+superList.get(randomNum));
                         game.setCurrentWord(superList.get(randomNum));
+                        choosenWord = superList.get(randomNum);
                         send(game);
-                    }
+                        while(game.correctGuess!=true){
+                            game = (gameInfo)in.readObject();
+                            if(game.letterGuess==true){
+                                game.letterGuess = false;
+                                String tempLetter = game.letterInput;
+                                for(int i=0;i<choosenWord.length();i++){
+                                    if(choosenWord.charAt(i) == tempLetter.charAt(0)){
+                                        System.out.println("letter location -> "+i);
+                                        game.letterLocation = i;
+                                        game.currentWord = choosenWord;
+                                        send(game);
+                                        break;
+                                    }
+                                }
+                            }
+                            else if(game.wordGuess==true){
 
-                   /* char[] arr = new char[game.input.length()];
-                    for(int i=0;i<game.input.length();i++){
-                        arr[i] = game.input.charAt(i);
-                        System.out.println(arr[i]);
+                            }
+                        }
                     }
-                    if(game.letterGuess==true){
-                       // System.out.println("h");
-
-                    }else if(game.wordGuess==true){
-                      // System.out.println("f");
-                    } */
                 }
                 catch(Exception e) {
                     e.printStackTrace();

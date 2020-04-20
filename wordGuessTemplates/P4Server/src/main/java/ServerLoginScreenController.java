@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ServerLoginScreenController {
+public class serverLoginScreenController {
 
     int PORT;
 
@@ -27,11 +27,11 @@ public class ServerLoginScreenController {
         try{
             PORT = Integer.parseInt(portInTextField.getText());
 
-            FXMLLoader loadGameInfoFile = new FXMLLoader(getClass().getResource("fxml/serverInfoScreen.fxml"));
+            FXMLLoader loadGameInfoFile = new FXMLLoader(getClass().getResource("serverInfoScreen.fxml"));
             Parent afterConnection = loadGameInfoFile.load();
 
             //Get controller of scene2
-            Controllers.ServerInfoScreenController serverInfoControl = loadGameInfoFile.getController();
+            ServerInfoScreenController serverInfoControl = loadGameInfoFile.getController();
 
             serverInfoControl.transferPortNumberAndInitializeServer(this.PORT);
 

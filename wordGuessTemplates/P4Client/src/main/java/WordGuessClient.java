@@ -75,6 +75,7 @@ public class WordGuessClient extends Application {
 			clientGame.wordGuess = false;
 			System.out.println("debug ->"+clientGame.currentWord);
 			clientGame.setLetterInput(guessWord.getText());
+			guessWord.clear();
 			try {
 				clientConnection.send(clientGame);
 			} catch (Exception ex) {

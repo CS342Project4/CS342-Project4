@@ -9,26 +9,31 @@ import java.util.function.Consumer;
 
 public class  Client extends Thread{
 
+
     StringBuilder tempString;
     Socket socketClient;
-    gameInfo game = new gameInfo();
+    public gameInfo game;
     ObjectOutputStream out;
     ObjectInputStream in;
     int numLetters;
     private Consumer<Serializable> callback;
+    private String ipAddress;
+    private int PORT;
 
-    Client(Consumer<Serializable> call){
-
+    Client(Consumer<Serializable> call, String ipAddress, int PORT){
         callback = call;
+        this.ipAddress = ipAddress;
+        this.PORT = PORT;
     }
 
     public void run() {
 
         try {
-            socketClient= new Socket("127.0.0.1",5556);
+            socketClient= new Socket(ipAddress,PORT);
             out = new ObjectOutputStream(socketClient.getOutputStream());
             in = new ObjectInputStream(socketClient.getInputStream());
             socketClient.setTcpNoDelay(true);
+            game = new gameInfo();
         }
         catch(Exception e) {e.printStackTrace();}
 
@@ -52,7 +57,9 @@ public class  Client extends Thread{
 
 
             }
-            catch(Exception e) {}
+            catch(Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -60,7 +67,7 @@ public class  Client extends Thread{
     public void send(gameInfo game) throws Exception {
 
         try {
-            //out.writeObject(data);
+
             out.writeObject(game);
             out.reset();
         } catch (Exception e) {

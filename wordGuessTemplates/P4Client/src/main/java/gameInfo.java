@@ -1,10 +1,15 @@
 import java.io.Serializable;
 
 public class gameInfo implements Serializable {
-    String input,message,currentWord;
-    int numGuesses,letterLocation;
-    String letterInput;
-    Boolean letterGuess,wordGuess,animalSelect,countrySelect,SuperheroSelect,correctGuess;
+
+    private static final long serialVersionUID = 1L;
+    String input = "";
+    String message = "";
+    String currentWord = "";
+    int numGuesses,letterLocation = 0;
+    String letterInput = "";
+    Boolean letterGuess,wordGuess,animalSelect,countrySelect,SuperheroSelect,correctGuess = false;
+
     public String getInput() {
         return input;
     }
@@ -24,6 +29,8 @@ public class gameInfo implements Serializable {
     public void setLetterInput(String letterInput) {
         this.letterInput = letterInput;
     }
+
+    public String getLetterInput(){ return this.letterInput ;}
 
     public void setNumGuesses(int numGuesses) {
         this.numGuesses = numGuesses;
